@@ -4,7 +4,12 @@ class ana extends Controller
 {
     function __construct(){
         parent::__construct();
-        //echo "Ana sınıfı çağrıldı" ;
+       $this->view->goster("index/index");
+    }
+
+    function ilerleme()
+    {
+        $this->Modelyukle("kayit");
     }
 }
 

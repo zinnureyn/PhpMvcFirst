@@ -1,10 +1,10 @@
 <?php
 
-class Ana_Model
+class Model
 {
     function __construct()
     {
-       echo "Ana Model sınıfı çağrıldı<br>" ;
+      $this->database = new Database();
     }
 
 }

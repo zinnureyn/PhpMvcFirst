@@ -10,21 +10,21 @@ class boots{
         if (empty($url[0])):
             require "controllers/ana.php";
             $controller = new ana();
-            endif;
 
 
+        else:
 
         $file = "controllers/" . $url[0] . ".php";//controllers/ana.php
 
-        if (file_exists($file)):
-            require $file;
-            $controller = new $url[0];
-        else:
-            require "controllers/error.php";
-            $hata = new hata();
+            if (file_exists($file)):
+                require $file;
+                $controller = new $url[0];
+                else:
+                     require "controllers/error.php";
+                     $hata = new hata();
 
+                endif;
         endif;
-
 
 
         if (isset($url[2])):
