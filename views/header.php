@@ -16,9 +16,9 @@
 
         <div class="col-lg-12 bg-light border-dark m-2">
             <h5> BURASI HEADER</h5><br/>
-            <a href="kayit">Kayıt Sayfa</a> <br/>
-            <a href="listele">Kayıtları Göster</a> <br/>
-            <a href="ana">Ana Sayfa</a> <br/>
+            <a href="<?php echo URL; ?>/kayit/kayitekle">Kayıt Ekle</a> <br/>
+            <a href="<?php echo URL; ?>/listele">Kayıtları Göster</a> <br/>
+            <a href="<?php echo URL; ?>/ana">Ana Sayfa</a> <br/>
 
 
         </div>
