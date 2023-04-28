@@ -8,7 +8,6 @@ class Controller
         $this->view = new View();
         $this->form = new Form();
     }
-
     function Modelyukle($name)
     {
         $path = "model/" . $name . "_model.php";
@@ -18,7 +17,5 @@ class Controller
             $this->model = new $modelName();
         }
     }
-
 }
-
 ?>

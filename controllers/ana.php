@@ -6,12 +6,9 @@ class ana extends Controller
         parent::__construct();
        $this->view->goster("index/index");
     }
-
     function ilerleme()
     {
         $this->Modelyukle("kayit");
     }
 }
-
-
 ?>

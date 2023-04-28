@@ -18,13 +18,12 @@ class Form extends Bilgi
     {
         if (empty($this->veri)):
             $this->error[] = $this->deger . " alanı boş bırakılamaz";
-             parent::hata(false,"/kayit/kayitekle");
-             return $this;
+            parent::hata(false, "/kayit/kayitekle");
+            return $this;
         else:
             return $this->veri;
         endif;
     }
-
 }
 
 ?>

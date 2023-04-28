@@ -16,9 +16,12 @@
 
         <div class="col-lg-12 bg-light border-dark m-2">
             <h5> BURASI HEADER</h5><br/>
-            <a href="<?php echo URL; ?>/kayit/kayitekle">Kayıt Ekle</a> <br/>
-            <a href="<?php echo URL; ?>/listele">Kayıtları Göster</a> <br/>
-            <a href="<?php echo URL; ?>/ana">Ana Sayfa</a> <br/>
-
+            <a href="<?php echo URL; ?>/kayit/kayitekle">Kayıt Ekle</a> 
+            <a href="<?php echo URL; ?>/kayit/listele">Kayıtları Göster</a> 
+            <a href="<?php echo URL; ?>/ana">Ana Sayfa</a> 
+		<form action="<?php echo URL; ?>/kayit/arama" method="post" >
+			<input type="text" name="kelime"/ placeholder="kelime" ><input type="submit" name="btn" value="Ara" class="btn btn-danger"/>
+			
+			</form>
 
         </div>

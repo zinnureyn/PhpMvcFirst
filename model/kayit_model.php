@@ -14,4 +14,20 @@ class kayit_model extends Model
         return $this->db->Ekle($tabload, $sutunlarim, $veri);
 
     }
+	function listeleme($tabload, $kosul)
+    {
+
+        return $this->db->listele($tabload, $kosul);
+
+    }
+    function silme($tabload, $kosul)
+    {
+
+        return $this->db->sil($tabload, $kosul);
+
+    }
+    function kayitguncel($tabload,$sutunlar,$veriler,$kosul)
+    {
+        return $this->db->guncelle($tabload,$sutunlar,$veriler,$kosul);
+    }
 }
