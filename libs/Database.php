@@ -8,7 +8,7 @@ class Database extends PDO
 
     function __construct()
     {
-        parent::__construct('mysql:host=localhost;dbname=mvcproje', 'root', '00000000');
+        parent::__construct('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
 
         $this->bilgi = new Bilgi();
     }
@@ -64,7 +64,7 @@ class Database extends PDO
         endforeach;
         $sutunlar = join(",", $this->dizi2);
 
-        $sorgum = "update " . $tabloisim . " set ".$sutunlar." where " . $kosul;
+        $sorgum = "update " . $tabloisim . " set " . $sutunlar . " where " . $kosul;
         $sorgum = $this->prepare($sorgum);
         if ($sorgum->execute($veriler)):
             return $this->bilgi->basarili("Kayıt Güncellendi", "/kayit/listele");
@@ -74,7 +74,27 @@ class Database extends PDO
     }
 
 
+    function arama($tabloisim, $kosul)
+    {
+        $sorgum = "select * from " . $tabloisim . " where " . $kosul;
+        $sorgum = $this->prepare($sorgum);
+        $sorgum->execute();
+        return $sorgum->fetchAll();
+    }
 
+    function giriskontrol($tabload, $kosul)
+    {
+        $sorgum = "select * from " . $tabload . " where " . $kosul;
+        $sorgum = $this->prepare($sorgum);
+        $sorgum->execute();
+
+        if ($sorgum->rowCount() > 0):
+            Session::init();
+            Session::set("kulad", true);
+
+        endif;
+        return $sorgum->rowCount();
+    }
 }
 
 ?>

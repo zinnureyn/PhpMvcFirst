@@ -26,7 +26,8 @@ class kayit extends Controller
         */
         if (!empty($this->form->error)):
             $hata = $this->form->error;
-            $this->view->goster("form/sonuc", $hata);
+            $yonlen = $this->bilgi->hata(false, "/kayit/kayitekle");
+            $this->view->goster("form/sonuc", $hata, $yonlen);
         else:
             $sonuc = $this->model->kontrolet("ogrenci", array("ad", "soyad", "yas"), array($ad, $soyad, $yas));
             //  $this->view->mesaj=$sonuc;
@@ -56,7 +57,8 @@ class kayit extends Controller
 
     }
 
-    function guncelleson(){
+    function guncelleson()
+    {
         $ad = $this->form->get("ad")->bosmu();
         $soyad = $this->form->get("soyad")->bosmu();
         $yas = $this->form->get("yas")->bosmu();
@@ -67,7 +69,7 @@ class kayit extends Controller
             $hata = $this->form->error;
             $this->view->goster("form/sonuc", $hata);
         else:
-            $sonuc = $this->model->kayitguncel("ogrenci",array("ad", "soyad", "yas"),  array($ad, $soyad, $yas),"id=".$id);
+            $sonuc = $this->model->kayitguncel("ogrenci", array("ad", "soyad", "yas"), array($ad, $soyad, $yas), "id=" . $id);
             //  $this->view->mesaj=$sonuc;
             $this->view->goster("form/sonuc", $sonuc);
         endif;
@@ -76,6 +78,14 @@ class kayit extends Controller
 
     function arama()
     {
-        echo $_POST['kelime'];
+        $kelime = $this->form->get("kelime")->bosmu();
+
+        if (!empty($this->form->error)):
+            $hata = $this->form->error;
+            $this->view->goster("form/sonuc", $hata);
+        else:
+            $sonuc = $this->model->kayitarama("ogrenci", "ad like '%" . $kelime . "%' or soyad like '%" . $kelime . "%' or yas like '%" . $kelime . "%'");
+            $this->view->goster("form/listele", $sonuc);
+        endif;
     }
 }

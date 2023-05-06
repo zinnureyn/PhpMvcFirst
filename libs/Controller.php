@@ -7,7 +7,9 @@ class Controller
         //echo "Ana kontrolcü<br>" ;
         $this->view = new View();
         $this->form = new Form();
+        $this->bilgi = new Bilgi();
     }
+
     function Modelyukle($name)
     {
         $path = "model/" . $name . "_model.php";
@@ -18,4 +20,5 @@ class Controller
         }
     }
 }
+
 ?>

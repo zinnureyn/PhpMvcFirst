@@ -5,6 +5,7 @@ require 'views/header.php';
 
 
 <div class="col-lg-12 text-center border-bottom">
+    <h5> BURASI Panel</h5><br/>
     <?php
 
     if (is_array($data)):
@@ -17,8 +18,6 @@ require 'views/header.php';
         echo $data;
 
     endif;
-
-    echo $yonlen;
 
 
     ?>
